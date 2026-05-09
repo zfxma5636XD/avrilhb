@@ -95,24 +95,26 @@ canvas {
 <div id="pantalla1" class="pantalla">
     <h1>🎉 FELIZ CUMPLEAÑOS AVRIL YA 16 AÑITOS 🎂</h1>
     <div class="boton-cumple" onclick="irAPantalla2()">🎂</div>
-    <p>tocá la torta 😏</p>
+    <p>soplá la vela perri 😏</p>
 </div>
 
 <!-- PANTALLA 2 -->
 <div id="pantalla2" class="pantalla">
     <h1>💙 TE AMO MUCHO SOS TOP AMISTADES QUE MÁS AMO Y OJALÁ SEAMOS AMIGOS SIEMPRE 💙</h1>
-    <img src="foto.jpg" class="foto">
+    <img src="avrilteamo.jpg" class="foto">
 </div>
 
 <canvas id="fuegos"></canvas>
 
 <script>
-const musica = document.getElementById("musica");
-
+// FUNCION PRINCIPAL (ARREGLADA)
 function irAPantalla2() {
     document.getElementById("pantalla1").style.display = "none";
     document.getElementById("pantalla2").style.display = "flex";
-    musica.play();
+
+    const musica = document.getElementById("musica");
+    musica.play().catch(() => {}); // evita error de navegador
+
     lanzarFuegos();
 }
 
