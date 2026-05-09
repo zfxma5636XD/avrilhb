@@ -21,6 +21,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 #pantalla1 {
@@ -75,11 +77,13 @@ h1 {
     100% { transform: translateY(-10vh); opacity: 0;}
 }
 
-/* Canvas fuegos */
+/* Canvas fuegos (ARREGLADO) */
 canvas {
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: none; /* 🔥 SOLUCIONA EL CLICK */
+    z-index: 0;
 }
 </style>
 </head>
@@ -107,13 +111,13 @@ canvas {
 <canvas id="fuegos"></canvas>
 
 <script>
-// FUNCION PRINCIPAL (ARREGLADA)
+// CAMBIO DE PANTALLA
 function irAPantalla2() {
     document.getElementById("pantalla1").style.display = "none";
     document.getElementById("pantalla2").style.display = "flex";
 
     const musica = document.getElementById("musica");
-    musica.play().catch(() => {}); // evita error de navegador
+    musica.play().catch(() => {});
 
     lanzarFuegos();
 }
